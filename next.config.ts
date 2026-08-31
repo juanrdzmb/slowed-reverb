@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
+const basePath = process.env.BASE_PATH || (process.env.GITHUB_ACTIONS ? "/slowed-reverb" : "");
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "export",
+  basePath: basePath || undefined,
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
+
